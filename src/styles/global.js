@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components'
+import theme from './theme'
 
 const GlobalStyle = createGlobalStyle`
   /* http://meyerweb.com/eric/tools/css/reset/
@@ -40,6 +41,7 @@ const GlobalStyle = createGlobalStyle`
     display: flex;
     flex-direction: column;
     flex: 1 0 auto;
+    background: linear-gradient(90deg, ${theme.colors.royalBlue} 0%, ${theme.colors.portage} 100%);
   }
   footer {
     width: 100%;

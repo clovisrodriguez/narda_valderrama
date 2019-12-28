@@ -21,7 +21,7 @@ const Template = ({ children }) => {
       <ThemeProvider theme={theme}>
         <>
           <div className="siteContent">
-            <Menu />
+            <Menu message="este es una notificación arriba" />
             {children}
           </div>
           <Footer />

@@ -1,9 +1,9 @@
 {
-  "name": "gatsby-starter-gcn",
-  "description": "A starter template to build amazing static websites with Gatsby, Contentful and Netlify",
-  "version": "2.0.6",
-  "repository": "https://github.com/ryanwiemer/gatsby-starter-gcn",
-  "author": "Ryan Wiemer <ryan@ryanwiemer.com>",
+  "name": "cash-me-up-website",
+  "description": "Source code project for Cash Me Up Website, including blogging",
+  "version": "1.0.0",
+  "repository": "https://git-codecommit.us-east-2.amazonaws.com/v1/repos/landing_fire",
+  "author": "Clovis Rodríguez",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.1",
     "chalk": "^2.4.2",
@@ -31,11 +31,13 @@
     "inquirer": "^6.3.1",
     "lodash": "^4.17.11",
     "moment": "^2.24.0",
+    "parallax-js": "^3.1.0",
     "path": "^0.12.7",
     "prismjs": "^1.16.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
+    "react-responsive-carousel": "^3.1.51",
     "styled-components": "^4.3.1"
   },
   "keywords": [
