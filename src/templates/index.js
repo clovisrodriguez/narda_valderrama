@@ -1,4 +1,4 @@
-import React, { useEffect, Fragment } from 'react'
+import React, { useEffect } from 'react'
 import { graphql } from 'gatsby'
 import Layout from '../components/Layout'
 import CardList from '../components/CardList'
@@ -9,10 +9,7 @@ import Pagination from '../components/Pagination'
 import SEO from '../components/SEO'
 import config from '../utils/siteConfig'
 import Parallax from 'parallax-js'
-import styled from 'styled-components'
-import { Carousel } from 'react-responsive-carousel'
-import 'react-responsive-carousel/lib/styles/carousel.min.css'
-
+import CarouselComponent from '../components/Carousel'
 import stars01 from '../images/stars01.png'
 // import nebula01 from '../images/nebula01.png'
 // import startdust01 from '../images/startdust01.png'
@@ -20,7 +17,6 @@ import startdust02 from '../images/startdust02.png'
 
 const Index = ({ data, pageContext }) => {
   const posts = data.allContentfulPost.edges
-  const featuredPost = posts[0].node
   const { currentPage } = pageContext
   const isFirstPage = currentPage === 1
   let scene = null
@@ -30,8 +26,6 @@ const Index = ({ data, pageContext }) => {
   useEffect(() => {
     parallax = new Parallax(scene)
   }, [])
-
-  console.log(featuredPost)
 
   return (
     <Layout>
@@ -51,40 +45,28 @@ const Index = ({ data, pageContext }) => {
         <li data-depth="0.2">
           <img
             src={startdust02}
-            style={{ width: '900px', transform: 'translate(-50px, -50px)' }}
+            style={{ maxWidth: '900px', transform: 'translate(-50px, -50px)' }}
           />
         </li>
       </ul>
       <Container style={{ zIndex: 2 }}>
-        {isFirstPage ? (
-          <Fragment>
-            <Carousel
-              showStatus={false}
-              showIndicators={false}
-              showThumbs={false}
-            >
-              {posts.map(({ node: post }) => (
-                <div key={post.id}>
-                  <img
-                    src={post.heroImage.fluid.src}
-                    backgroundColor={'#eeeeee'}
-                  />
-                </div>
-              ))}
-            </Carousel>
-            <CardList>
-              {posts.slice(1).map(({ node: post }) => (
-                <Card key={post.id} {...post} />
-              ))}
-            </CardList>
-          </Fragment>
-        ) : (
-          <CardList>
+        {isFirstPage && (
+          <CarouselComponent>
             {posts.map(({ node: post }) => (
-              <Card key={post.id} {...post} />
+              <div key={post.id} style={{ maxHeight: '45vh' }}>
+                <img
+                  src={post.heroImage.fluid.src}
+                  backgroundColor={'#eeeeee'}
+                />
+              </div>
             ))}
-          </CardList>
+          </CarouselComponent>
         )}
+        <CardList>
+          {posts.map(({ node: post }, i) => (
+            <Card key={post.id} {...post} index={i} />
+          ))}
+        </CardList>
       </Container>
       <Pagination context={pageContext} />
     </Layout>

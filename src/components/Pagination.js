@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   position: relative;
   display: flex;
   justify-content: space-between;
-  margin: -2em auto 0;
+  margin: 0.8em auto 0;
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidth};
   padding: 0 1.5em 2em;
@@ -18,7 +18,8 @@ const Wrapper = styled.div`
     text-decoration: none;
     transition: 0.2s;
     &:hover {
-      background: ${props => props.theme.colors.highlight};
+      color: ${props => props.theme.colors.base};
+      background: ${props => props.theme.colors.brightTurquoise};
     }
   }
 `

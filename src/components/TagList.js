@@ -14,15 +14,16 @@ const Tag = styled.li`
   a {
     float: left;
     transition: 0.2s;
-    background: ${props => props.theme.colors.tertiary};
+    background: ${props => props.theme.colors.flory};
+    font-weight: 600;
     padding: 0.5em;
     border-radius: 2px;
-    text-transform: capitalize;
+    text-transform: uppercase;
     text-decoration: none;
-    color: ${props => props.theme.colors.base};
-    border: 1px solid ${props => props.theme.colors.secondary};
+    color: ${props => props.theme.colors.secondary};
     &:hover {
-      background: ${props => props.theme.colors.secondary};
+      background: ${props => props.theme.colors.brightTurquoise};
+      color: ${props => props.theme.colors.base};
     }
   }
 `

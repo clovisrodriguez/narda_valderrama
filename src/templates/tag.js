@@ -50,14 +50,14 @@ const TagTemplate = ({ data, pageContext }) => {
 
       <Container>
         <PageTitle small>
-          {numberOfPosts} Posts Tagged: &ldquo;
+          {numberOfPosts} Publicaciones con el Tag: &ldquo;
           {title}
           &rdquo;
         </PageTitle>
 
         <CardList>
-          {posts.slice(skip, limit * currentPage).map(post => (
-            <Card {...post} key={post.id} />
+          {posts.slice(skip, limit * currentPage).map((post, i )=> (
+            <Card {...post} key={post.id} index={i} />
           ))}
         </CardList>
       </Container>

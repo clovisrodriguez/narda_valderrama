@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'gatsby'
-import styled, { keyframes } from 'styled-components'
+import styled from 'styled-components'
 
 import logo from '../images/logo.png'
 
@@ -44,48 +44,32 @@ const Nav = styled.nav`
   }
 `
 
-const notificationAnimation = keyframes`
-  from {
-    transform: translateX(-60vw)
-  }
-
-  to {
-    transform: translateX(80vw)
-  }
-`
-
 const Notification = styled.div`
   width: 100%;
   display: flex;
   justify-content: center;
   margin: 0 auto;
-  height: 20px;
   padding: 1em;
   color: white;
   background: ${props => props.theme.colors.base};
 
-  div {
-    min-width: ${props => props.theme.sizes.maxWidth};
-    overflow: hidden;
-    span {
-      text-transform: uppercase;
-      position: absolute;
-      animation: ${notificationAnimation} 10s linear infinite;
-    }
+  span {
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: bold;
+    color: ${props => props.theme.colors.brightTurquoise}
   }
 `
 
 const activeLinkStyle = {
-  color: 'white',
+  color: `${props => props.theme.color.brightTurquoise}`,
 }
 
 const Menu = ({ message }) => {
   return (
     <Header>
       <Notification>
-        <div>
-          <span>{message}</span>
-        </div>
+        <span>{message}</span>
       </Notification>
       <Nav>
         <ul>

@@ -11,7 +11,6 @@ const BgImg = styled(Img)`
   top: 0;
   left: 0;
   width: 100%;
-  z-index: -1;
   min-height: 300px;
   height: auto;
   @media (min-width: ${props => props.theme.responsive.small}) {
@@ -31,23 +30,25 @@ const BgImg = styled(Img)`
     bottom: 0;
     height: 100%;
     width: 100%;
-    z-index: 1;
+    z-index: 2;
   }
 `
 
 const Title = styled.h1`
   font-size: 3em;
-  text-transform: capitalize;
+  text-transform: uppercase;
   font-weight: 600;
   position: absolute;
   width: 100%;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
-  padding: 0 1rem;
+  padding: 0.5em;
+  background-color: ${props => props.theme.colors.base};
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   text-align: center;
-  color: white;
+  color: ${props => props.theme.colors.brightTurquoise};
+  z-index: 2;
 `
 
 const Hero = props => (
@@ -55,7 +56,6 @@ const Hero = props => (
     <BgImg
       height={props.height}
       fluid={props.image.fluid}
-      backgroundColor={'#eeeeee'}
     />
     <Title>{props.title}</Title>
   </Wrapper>
