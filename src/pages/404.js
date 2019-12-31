@@ -10,22 +10,21 @@ const Text = styled.p`
   text-align: center;
   line-height: 1.6;
   a {
-    color: #121212;
+    color: white;
   }
 `
 
 const NotFoundPage = () => (
   <Layout>
     <Helmet>
-      <title>404 - Page Not Found</title>
+      <title>Página no encontrada :/</title>
       <meta name="description" content="Page not found" />
     </Helmet>
 
     <Container>
-      <PageTitle>Page Not Found</PageTitle>
+      <PageTitle>Ups te perdiste mi Herman@</PageTitle>
       <Text>
-        Please return <Link to="/">home</Link> or use the menu to navigate to a
-        different page.
+        Vuelve de vuelta a <Link to="/">inicio</Link> o utiliza una opción del menu o el pié de página para navegar
       </Text>
     </Container>
   </Layout>

@@ -32,6 +32,18 @@ const GlobalStyle = createGlobalStyle`
   html, body {
     height: 100%;
   }
+  body::-webkit-scrollbar {
+    width: 1em;
+  }
+  body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: ${theme.colors.portage};
+  }
+   
+  body::-webkit-scrollbar-thumb {
+    outline: 1px solid slategrey;
+    background-color: ${theme.colors.brightTurquoise}
+  }
   .siteRoot {
     height: 100vh;
     display: flex;

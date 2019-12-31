@@ -8,6 +8,9 @@ import theme from '../styles/theme'
 const useStyles = createUseStyles({
   container: {
     display: 'flex',
+    '&:hover img': {
+      filter: 'grayscale(100%)',
+    },
   },
 
   item: {
@@ -78,8 +81,8 @@ const useStyles = createUseStyles({
       flexDirection: 'column',
     },
     item: {
-      width: '100%'
-    }
+      width: '100%',
+    },
   },
 })
 
