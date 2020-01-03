@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 
 const Wrapper = styled.div`
-  margin: -2em 0 0 0;
+  margin: 0 0 0 0;
   padding: 0 1.5em 2em;
 `
 
@@ -21,7 +21,8 @@ const Box = styled.div`
     text-decoration: none;
     transition: 0.2s;
     &:hover {
-      background: ${props => props.theme.colors.highlight};
+      background: ${props => props.theme.colors.brightTurquoise};
+      color: ${props => props.theme.colors.base};
     }
   }
 `
@@ -42,11 +43,11 @@ const PostLinks = props => {
       <Box>
         {props.previous && (
           <PreviousLink to={`/${props.previous.slug}/`}>
-            &#8592; Prev Post
+            &#8592; Anterior
           </PreviousLink>
         )}
         {props.next && (
-          <NextLink to={`/${props.next.slug}/`}>Next Post &#8594;</NextLink>
+          <NextLink to={`/${props.next.slug}/`}>Siguiente &#8594;</NextLink>
         )}
       </Box>
     </Wrapper>

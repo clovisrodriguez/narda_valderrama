@@ -51,16 +51,7 @@ const Index = ({ data, pageContext }) => {
       </ul>
       <Container style={{ zIndex: 2 }}>
         {isFirstPage && (
-          <CarouselComponent>
-            {posts.map(({ node: post }) => (
-              <div key={post.id} style={{ maxHeight: '45vh' }}>
-                <img
-                  src={post.heroImage.fluid.src}
-                  backgroundColor={'#eeeeee'}
-                />
-              </div>
-            ))}
-          </CarouselComponent>
+          <CarouselComponent />
         )}
         <CardList>
           {posts.map(({ node: post }, i) => (

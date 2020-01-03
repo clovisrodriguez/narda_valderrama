@@ -3,6 +3,7 @@ import styled from 'styled-components'
 
 const Wrapper = styled.div`
   margin: 0 auto 2em;
+  color: ${props => props.theme.colors.secondary};
   max-width: ${props => props.theme.sizes.maxWidthCentered};
   span {
     margin: 0 0.5rem;

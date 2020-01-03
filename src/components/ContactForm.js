@@ -143,6 +143,7 @@ const Button = styled.div`
 `
 
 const encode = data => {
+  console.log(data)
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
@@ -197,10 +198,9 @@ class ContactForm extends React.Component {
       <Form
         name="contact"
         onSubmit={this.handleSubmit}
-        data-netlify="true"
-        data-netlify-honeypot="bot"
         overlay={this.state.showModal}
         onClick={this.closeModal}
+        mailto={'clovis.rodriguez@cashmeup.co'}
       >
         <input type="hidden" name="form-name" value="contact" />
         <p hidden>
@@ -234,13 +234,13 @@ class ContactForm extends React.Component {
           onChange={this.handleInputChange}
           required
         />
-        <Submit name="submit" type="submit" value="Send" />
+        <Submit name="submit" type="submit" value="Enviar" />
 
         <Modal visible={this.state.showModal}>
           <p>
             Gracias por buscarnos, tan pronto como nos sea posible te estaremos contactando
           </p>
-          <Button onClick={this.closeModal}>Okay</Button>
+          <Button onClick={this.closeModal}>¡Listones!</Button>
         </Modal>
       </Form>
     )

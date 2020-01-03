@@ -5,6 +5,7 @@ require('prismjs/themes/prism.css')
 const Body = styled.div`
   margin: 0 auto;
   max-width: ${props => props.theme.sizes.maxWidthCentered};
+  color: ${props => props.theme.colors.secondary};
 
   h1,
   h2,

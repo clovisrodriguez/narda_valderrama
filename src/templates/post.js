@@ -41,8 +41,8 @@ const PostTemplate = ({ data, pageContext }) => {
           timeToRead={body.childMarkdownRemark.timeToRead}
         />
         <PageBody body={body} />
+        <PostLinks previous={previous} next={next} />
       </Container>
-      <PostLinks previous={previous} next={next} />
     </Layout>
   )
 }
