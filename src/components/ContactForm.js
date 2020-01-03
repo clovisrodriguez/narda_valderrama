@@ -143,7 +143,6 @@ const Button = styled.div`
 `
 
 const encode = data => {
-  console.log(data)
   return Object.keys(data)
     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
     .join('&')
