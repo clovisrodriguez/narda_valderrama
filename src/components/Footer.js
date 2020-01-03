@@ -3,27 +3,71 @@ import { createUseStyles } from 'react-jss'
 import theme from '../styles/theme'
 import Parallax from 'parallax-js'
 import clouds01 from '../images/clouds01.png'
+import config from '../utils/siteConfig'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import {
+  faInstagram,
+  faTwitterSquare,
+} from '@fortawesome/free-brands-svg-icons'
 
 const useStyles = createUseStyles({
   footer: {
     width: '100%',
-    height: '100px'
+    background: `linear-gradient(0deg, ${theme.colors.daisyBush} 0%, ${theme.colors.portage} 100%)`,
+    color: theme.colors.secondary,
+  },
+
+  container: {
+    maxWidth: theme.sizes.maxWidth,
+    height: '210px',
+    width: '100%',
+    display: 'flex',
   },
 
   backgroundStyle: {
-    width: '100%',
-    height: '225px',
     position: 'absolute',
-    background: `linear-gradient(0deg, ${theme.colors.daisyBush} 0%, ${theme.colors.portage} 100%)`,
+    left: 0,
+    width: '100%',
+    transform: 'translateY(-230px)',
+    background: theme.colors.daisyBush,
+
     '& img': {
       position: 'absolute',
-      width: '200px'
+      width: '200px',
     },
     '& img:nth-child(2)': {
+      transform: 'scaleX(-1)',
       right: 0,
-      transform: 'scaleX(-1)'
+    },
+  },
+
+  column: {
+    flexGrow: 1,
+    padding: '2em',
+
+    '& h3': {
+      textTransform: 'uppercase',
+      fontWeight: 'bold',
+      fontSize: '1.5em',
+      marginBottom: '1em',
+    },
+
+    '& ul': {
+      display: 'flex'
+    },
+
+    '& a': {
+      color: theme.colors.secondary,
+      fontSize: '2em',
+      marginRight: '1em'
     }
-  }
+  },
+
+  content: {
+    width: '100%',
+    display: 'flex',
+    justifyContent: 'center',
+  },
 })
 
 const Footer = () => {
@@ -38,15 +82,43 @@ const Footer = () => {
 
   return (
     <footer className={classes.footer}>
-      <ul
-        ref={el => (scene = el)}
-        className={classes.backgroundStyle}
-      >
-        <li data-depth="0.3">
-          <img src={clouds01} />
-          <img src={clouds01} />
-        </li>
-      </ul>
+      <div className={classes.content}>
+        <div className={classes.container}>
+          <div className={classes.column}>
+            <h3>SIGUENOS</h3>
+            <ul>
+              {config.userInstagram && (
+                <li>
+                  <a
+                    href={`https://instagram.com/${config.userInstagram}`}
+                    target="blank"
+                  >
+                    <FontAwesomeIcon icon={faInstagram} />
+                  </a>
+                </li>
+              )}
+              {config.userTwitter && (
+                <li>
+                  <a
+                    href={`https://twitter.com/${config.userInstagram}`}
+                    target="blank"
+                  >
+                    <FontAwesomeIcon icon={faTwitterSquare} />
+                  </a>
+                </li>
+              )}
+            </ul>
+          </div>
+        </div>
+      </div>
+      <div className={classes.backgroundStyle}>
+        <ul ref={el => (scene = el)}>
+          <li data-depth="0.3">
+            <img src={clouds01} />
+            <img src={clouds01} />
+          </li>
+        </ul>
+      </div>
     </footer>
   )
 }

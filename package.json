@@ -5,6 +5,11 @@
   "repository": "https://git-codecommit.us-east-2.amazonaws.com/v1/repos/landing_fire",
   "author": "Clovis Rodríguez",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.26",
+    "@fortawesome/free-brands-svg-icons": "^5.12.0",
+    "@fortawesome/free-regular-svg-icons": "^5.12.0",
+    "@fortawesome/free-solid-svg-icons": "^5.12.0",
+    "@fortawesome/react-fontawesome": "^0.1.8",
     "babel-plugin-styled-components": "^1.10.1",
     "chalk": "^2.4.2",
     "classnames": "^2.2.6",
@@ -41,6 +46,7 @@
     "react-helmet": "^5.2.1",
     "react-jss": "^10.0.1",
     "react-responsive-carousel": "^3.1.51",
+    "react-share": "^3.0.1",
     "styled-components": "^4.3.1"
   },
   "keywords": [

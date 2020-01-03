@@ -9,7 +9,8 @@ module.exports = {
   postsPerPage: 4, // Number of posts shown on paginated pages
   author: 'Cash Me Up', // Author for RSS author segment and SEO schema
   authorUrl: 'https://www.cashmeup.co/sobre_nosotros', // URL used for author and publisher schema, can be a social profile or other personal site
-  userTwitter: '@twitter', // Change for Twitter Cards
+  userTwitter: 'cash_meup', // Change for Twitter Cards
+  userInstagram: 'cash_meup', // Instagram User
   shortTitle: 'Cash Me Up App', // Used for App manifest e.g. Mobile Home Screen
   shareImage: '/logos/share.jpg', // Open Graph Default Share Image. 1200x1200 is recommended
   shareImageWidth: 900, // Change to the width of your default share image
