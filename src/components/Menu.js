@@ -26,7 +26,13 @@ const Nav = styled.nav`
     &:first-child {
       position: relative;
       margin: 0;
-      flex-basis: 100%;
+      flex-basis: 30%;
+      @media (min-widht: ${props => props.theme.responsive.large}) {
+        flex-basis: 80% !important;
+      }
+      @media (min-width: ${props => props.theme.responsive.medium}) {
+        flex-basis: 70%;
+      }
     }
     img {
       width: 70px;
@@ -57,7 +63,7 @@ const Notification = styled.div`
     text-transform: uppercase;
     text-align: center;
     font-weight: bold;
-    color: ${props => props.theme.colors.brightTurquoise}
+    color: ${props => props.theme.colors.brightTurquoise};
   }
 `
 
@@ -80,12 +86,12 @@ const Menu = ({ message }) => {
           </li>
           <li>
             <Link to="/about/" activeStyle={activeLinkStyle}>
-              ABOUT
+              EL PARCHE
             </Link>
           </li>
           <li>
             <Link to="/contact/" activeStyle={activeLinkStyle}>
-              CONTACT
+              CONTACTO
             </Link>
           </li>
         </ul>

@@ -2,6 +2,7 @@ module.exports = {
   siteTitle: 'Cash Me Up',
   siteTitleAlt: 'Cash Me Up', // This allows an alternative site title for SEO schema.
   publisher: 'Publisher named Cash Me Up', // Organization name used for SEO schema
+  supportName: 'Cashie',
   siteDescription:
     'Un mundo lleno de diversión, descubre cosas nuevas para hacer en tu ciudad con Cash Me Up',
   siteUrl: 'https://www.cashmeup.co', // Site domain. Do not include a trailing slash! If you wish to use a path prefix you can read more about that here: https://www.gatsbyjs.org/docs/path-prefix/

@@ -19,16 +19,17 @@ const useStyles = createUseStyles({
 
   container: {
     maxWidth: theme.sizes.maxWidth,
-    height: '210px',
+    height: '230px',
     width: '100%',
     display: 'flex',
+    zIndex: 1,
   },
 
   backgroundStyle: {
     position: 'absolute',
     left: 0,
+    zIndex: 0,
     width: '100%',
-    transform: 'translateY(-230px)',
     background: theme.colors.daisyBush,
 
     '& img': {
@@ -53,20 +54,33 @@ const useStyles = createUseStyles({
     },
 
     '& ul': {
-      display: 'flex'
+      display: 'flex',
     },
 
     '& a': {
       color: theme.colors.secondary,
       fontSize: '2em',
-      marginRight: '1em'
-    }
+      marginRight: '1em',
+    },
   },
 
   content: {
     width: '100%',
     display: 'flex',
     justifyContent: 'center',
+  },
+
+  [`@media (max-width: ${theme.responsive.medium})`]: {
+    backgroundStyle: {
+      transform: 'translateY(-80px)',
+      '& img': {
+        width: '75px',
+      },
+    },
+
+    container: {
+      height: '100%',
+    },
   },
 })
 
@@ -83,6 +97,14 @@ const Footer = () => {
   return (
     <footer className={classes.footer}>
       <div className={classes.content}>
+        <div className={classes.backgroundStyle}>
+          <ul ref={el => (scene = el)}>
+            <li data-depth="0.3">
+              <img src={clouds01} />
+              <img src={clouds01} />
+            </li>
+          </ul>
+        </div>
         <div className={classes.container}>
           <div className={classes.column}>
             <h3>SIGUENOS</h3>
@@ -110,14 +132,6 @@ const Footer = () => {
             </ul>
           </div>
         </div>
-      </div>
-      <div className={classes.backgroundStyle}>
-        <ul ref={el => (scene = el)}>
-          <li data-depth="0.3">
-            <img src={clouds01} />
-            <img src={clouds01} />
-          </li>
-        </ul>
       </div>
     </footer>
   )

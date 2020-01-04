@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import styled from 'styled-components'
+import * as emailjs from 'emailjs-com'
+import config from '../utils/siteConfig'
 
 /*
   ⚠️ This is an example of a contact form powered with Netlify form handling.
@@ -88,8 +90,9 @@ const Submit = styled.input`
   color: white !important;
   cursor: pointer;
   transition: 0.2s;
+  font-weight: bold;
   &:hover {
-    background: ${props => props.theme.colors.highlight} !important;
+    background: ${props => props.theme.colors.flory} !important;
   }
 `
 
@@ -142,12 +145,6 @@ const Button = styled.div`
   }
 `
 
-const encode = data => {
-  return Object.keys(data)
-    .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-    .join('&')
-}
-
 class ContactForm extends React.Component {
   constructor(props) {
     super(props)
@@ -155,6 +152,7 @@ class ContactForm extends React.Component {
       name: '',
       email: '',
       message: '',
+      disable: false,
       showModal: false,
     }
   }
@@ -169,11 +167,24 @@ class ContactForm extends React.Component {
   }
 
   handleSubmit = event => {
-    fetch('/?no-cache=1', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: encode({ 'form-name': 'contact', ...this.state }),
-    })
+    this.setState({ disable: true })
+    const { email, message, name } = this.state
+
+    let templateParams = {
+      from_name: name,
+      to_name: config.supportName,
+      email,
+      subject: 'forma de contacto - website',
+      message_html: message,
+    }
+
+    emailjs
+      .send(
+        'gmail',
+        'template_3K0lvUwI',
+        templateParams,
+        'user_rJePwObCt4vgbdxP9dpTU'
+      )
       .then(this.handleSuccess)
       .catch(error => alert(error))
     event.preventDefault()
@@ -184,6 +195,7 @@ class ContactForm extends React.Component {
       name: '',
       email: '',
       message: '',
+      disable: false,
       showModal: true,
     })
   }
@@ -233,11 +245,17 @@ class ContactForm extends React.Component {
           onChange={this.handleInputChange}
           required
         />
-        <Submit name="submit" type="submit" value="Enviar" />
+        <Submit
+          name="submit"
+          type="submit"
+          value="Enviar"
+          disabled={this.state.disable}
+        />
 
         <Modal visible={this.state.showModal}>
           <p>
-            Gracias por buscarnos, tan pronto como nos sea posible te estaremos contactando
+            Gracias por buscarnos, tan pronto como nos sea posible te estaremos
+            contactando
           </p>
           <Button onClick={this.closeModal}>¡Listones!</Button>
         </Modal>
