@@ -1,6 +1,5 @@
-# CMU Website On Fire
-
-Welcome to WOF!! as you probably know this is our magazine blog website, first at all we are going to setup our project
+# Narda Valderrama Brides Website
+How to install
 
 ```shell
 git checkout develop
@@ -15,10 +14,10 @@ yarn install
 please _DO NOT COMMIT TO MASTER_, if you commit to master a job will be triggered and therefore deployed to production, so be careful :D
 
 ```shell
-yarn run setup -- --spaceId q9skjzf86rec --deliveryToken 65unsYAMBCkEBR9XIezO_FFRGwzHMP94B2JZMhcHwKA --managementToken CFPAT-z0hUQ46GaoQylS0FMp3uc8XZCFVQQq9VlFnQ0typocs
+yarn run setup -- --spaceId [SPACE ID] --deliveryToken [DELIVERY TOKEN] --managementToken [MANAGEMENT-TOKEN]
 ```
 
-offcourse this is something special as you know already our repository is supersecret and it should be only visible for your eyes, any other eyes that are not allowed to see these lines of code should be _REMOVED FROM THEIR SKULL AND FEED IT TO THE DOGS_, lol just kidding but please know that keys are expose inside our repo just because is private it.
+and finally
 
 ```shell
 yarn run dev
